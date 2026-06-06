@@ -42,7 +42,7 @@ Boolean columns were converted to proper boolean types, numeric fields were conv
 
 ## 7. Building Static Listing Features
 
-The listing table was enriched by joining it with host and neighbourhood information. Additional host-level information was created by calculating the number of listings owned by each host (`host_listing_count`). The result was a single static feature table with one row per listing. Sensitive identifiers and raw text fields were removed, leaving only privacy-safe attributes that describe the listing, host, and location. This table became the foundation for later feature groups.
+The listing table was enriched by joining it with host and neighbourhood information. Additional host-level information was created by calculating the number of listings owned by each host (`host_listing_count`). 
 
 ---
 
