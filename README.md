@@ -80,11 +80,25 @@ Before saving the dataset, feature quality checks were performed. Missing value 
 
 A comprehensive validation step ensured the dataset was safe for machine learning. Checks confirmed that there were no duplicate listing-cutoff combinations, no missing target values, no forbidden PII columns, and no future leakage features in the model input set. The target variable contained only valid binary values (0 and 1). The validation report demonstrated that the dataset met all project requirements and was suitable for supervised learning.
 
-Example validation results:
+---
+## 14. Dataset Exploration and Quality Analysis
 
-```text
-duplicate_count: 0
-missing_target_count: 0
-unique_target_values: [0, 1]
-present_forbidden_columns: []
-future_leakage_columns: []
+Several summary reports were created to understand the final dataset. Most engineered features had no missing values, while a few original fields such as `listing_price` and `beds` contained some missing data. The target distribution showed that about 76% of listings were labeled as high demand and 24% as low demand. Calendar checks confirmed that all listings had a complete 30-day future observation period, making the target labels consistent and reliable.
+
+---
+## 15. Saving Versioned Outputs
+
+The final dataset was saved in both CSV and Parquet formats along with metadata, validation reports, and a PII audit report. Versioning makes the dataset reproducible and allows future notebooks to use the same processed data without querying the raw database again.
+
+Generated files:
+
+* `listing_availability_features_v1_student.csv`
+* `listing_availability_features_v1_student.parquet`
+* `listing_availability_features_v1_student_metadata.json`
+* `listing_availability_features_v1_student_validation_report.json`
+* `pii_audit_v1_student.csv`
+---
+## Conclusion
+
+This ETL pipeline transformed raw Airbnb data into a clean machine-learning dataset. Historical features and future labels were separated to avoid data leakage, sensitive information was removed, and validation checks ensured data quality. The final dataset contains one row per listing and is ready for model training, experiment tracking, and deployment.
+
